@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">BackloggerV2</string>
+    <string name="menu_addGame">Add</string>
     <string name="button_addGame">Add Game</string>
-    <string name="hint_gameTitle">Game Title</string>
+    <string name="hint_gameTitle">Title</string>
+    <string name="hint_gameDescription">Description</string>
+    <string name="hint_gameDeveloper">Developer</string>
+    <string name="hint_gamePublisher">Publisher</string>
+    <string name="hint_gameReleaseDate">Release Date</string>
+    <string name="hint_gamePlatform">Platform</string>
+    <string name="hint_gameGenre">Genre</string>
+    <string name="hint_gameMetacritic">Metacritic</string>
+    <string name="hint_gameCoverArt">Cover Art</string>
 </resources>

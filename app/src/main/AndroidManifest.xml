@@ -3,6 +3,7 @@
     package="org.wit.backloggerv2">
 
     <application
+        android:name="org.wit.backloggerv2.main.MainApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BackloggerV2">
         <activity android:name=".activities.BackloggerActivity">
+        </activity>
+        <activity android:name=".activities.GameListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
