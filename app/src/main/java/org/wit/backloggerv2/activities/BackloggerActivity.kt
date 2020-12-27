@@ -15,6 +15,7 @@ import org.wit.backloggerv2.main.MainApp
 class BackloggerActivity : AppCompatActivity(), AnkoLogger {
 
     var game = GameModel()
+    var edit = false
     lateinit var app : MainApp
 
 
@@ -27,6 +28,23 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         setSupportActionBar(toolbarAdd)
         info("Backloggerv2 Activity started..")
 
+
+        if (intent.hasExtra("game_edit")) {
+            edit = true
+            game = intent.extras?.getParcelable<GameModel>("game_edit")!!
+            gameTitle.setText(game.title)
+            gameDescription.setText(game.description)
+            gameDeveloper.setText(game.developer)
+            gamePublisher.setText(game.publisher)
+            gameReleaseDate.setText(game.releaseDate)
+            gamePlatform.setText(game.platform)
+            gameGenre.setText(game.genre)
+            gameMetacritic.setText(game.metacritic)
+            gameCoverArt.setText(game.coverArt)
+            btnAdd.setText(R.string.save_changes)
+        }
+
+
         btnAdd.setOnClickListener() {
             game.title = gameTitle.text.toString()
             game.description = gameDescription.text.toString()
@@ -38,15 +56,23 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             game.metacritic = gameMetacritic.text.toString()
             game.coverArt = gameCoverArt.text.toString()
 
-            if (game.title.isNotEmpty()) {
-                app.games.create(game.copy())
-                info("add Button Pressed: ${game}")
-                setResult(AppCompatActivity.RESULT_OK)
-                finish()
+            if (game.title.isEmpty()) {
+                toast(R.string.enter_game_title)
             }
-            else {
-                toast ("Please enter all fields")
+            else
+            {
+                if (edit)
+                {
+                    app.games.update(game.copy())
+                }
+                else
+                {
+                    app.games.create(game.copy())
+                }
             }
+            info("add Button Pressed: ${game}")
+            setResult(AppCompatActivity.RESULT_OK)
+            finish()
         }
     }
 
