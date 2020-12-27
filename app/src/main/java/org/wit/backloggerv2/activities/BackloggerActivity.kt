@@ -2,6 +2,8 @@ package org.wit.backloggerv2.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_backlogger.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -21,6 +23,10 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_backlogger)
         app = application as MainApp
 
+        toolbarAdd.title = title
+        setSupportActionBar(toolbarAdd)
+        info("Backloggerv2 Activity started..")
+
         btnAdd.setOnClickListener() {
             game.title = gameTitle.text.toString()
             game.description = gameDescription.text.toString()
@@ -33,11 +39,8 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             game.coverArt = gameCoverArt.text.toString()
 
             if (game.title.isNotEmpty()) {
-                app.games.add(game.copy())
+                app.games.create(game.copy())
                 info("add Button Pressed: ${game}")
-                for (i in app.games.indices) {
-                    info("Game[$i]:${app.games[i]}")
-                }
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }
@@ -46,4 +49,18 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             }
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_game, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_cancel -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

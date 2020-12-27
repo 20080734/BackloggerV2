@@ -3,11 +3,13 @@ package org.wit.backloggerv2.main
 import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import org.wit.backloggerv2.models.GameMemStore
 import org.wit.backloggerv2.models.GameModel
 
 class MainApp : Application(), AnkoLogger {
 
-    val games = ArrayList<GameModel>()
+    //val games = ArrayList<GameModel>()
+    val games = GameMemStore()
 
     override fun onCreate() {
         super.onCreate()
