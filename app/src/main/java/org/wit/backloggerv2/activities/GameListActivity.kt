@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_game_list.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
@@ -13,6 +15,10 @@ import org.wit.backloggerv2.main.MainApp
 import org.wit.backloggerv2.models.GameModel
 
 class GameListActivity : AppCompatActivity(), GameListener {
+
+   // private var recyclerView: RecyclerView? = null
+    private var gridLayoutManager: GridLayoutManager? = null
+
 
     lateinit var app: MainApp
 
@@ -26,8 +32,17 @@ class GameListActivity : AppCompatActivity(), GameListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
+
         //recyclerView.adapter = GameAdapter(app.games)
         recyclerView.adapter = GameAdapter(app.games.findAll(), this)
+
+        //recyclerView = findViewById(R.id.my_recycler_view)
+        gridLayoutManager = GridLayoutManager(applicationContext,3,LinearLayoutManager.VERTICAL,false)
+        recyclerView?.layoutManager = gridLayoutManager
+        recyclerView?.setHasFixedSize(true)
+
+
+
         loadGames()
 
 
