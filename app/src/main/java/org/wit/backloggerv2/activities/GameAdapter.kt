@@ -37,8 +37,8 @@ class GameAdapter constructor(private var games: List<GameModel>, private val li
 
         fun bind(game: GameModel,  listener : GameListener) {
             itemView.gameTitle.text = game.title
-            itemView.gameDescription.text = game.description
-            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, game.coverArt))
+            //itemView.gameDescription.text = game.description
+            itemView.gameCoverArt.setImageBitmap(readImageFromPath(itemView.context, game.coverArt))
             itemView.setOnClickListener { listener.onGameClick(game) }
         }
     }

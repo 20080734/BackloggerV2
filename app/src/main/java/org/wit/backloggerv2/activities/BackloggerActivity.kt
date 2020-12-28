@@ -29,8 +29,8 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         app = application as MainApp
         var edit = false
 
-        toolbarAdd.title = title
-        setSupportActionBar(toolbarAdd)
+        //toolbarAdd.title = title      //this causes the app to crash when running on mobile
+        //setSupportActionBar(toolbarAdd)
         info("Backloggerv2 Activity started..")
 
 
