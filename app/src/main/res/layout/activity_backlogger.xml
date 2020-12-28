@@ -143,19 +143,23 @@
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
-                <EditText
+                <Button
+                    android:id="@+id/chooseImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/button_addCoverArt"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+
+                <ImageView
                     android:id="@+id/gameCoverArt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:autofillHints=""
-                    android:hint="@string/hint_gameCoverArt"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1"
-                    android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp" />
+                    app:srcCompat="@mipmap/ic_launcher"/>
 
                 <Button
                     android:id="@+id/btnAdd"

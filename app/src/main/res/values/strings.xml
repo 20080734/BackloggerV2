@@ -12,6 +12,9 @@
     <string name="hint_gameGenre">Genre</string>
     <string name="hint_gameMetacritic">Metacritic</string>
     <string name="hint_gameCoverArt">Cover Art</string>
+    <string name="button_addCoverArt"> Add Cover Art / Image </string>
+    <string name="select_game_coverart">Select game cover art</string>
+    <string name="change_game_coverart">Change cover art</string>
     <string name="enter_game_title"> Please enter a Title </string>
     <string name="add_game"> Add game to Backlog </string>
     <string name="save_changes"> Save changes to Backlog </string>

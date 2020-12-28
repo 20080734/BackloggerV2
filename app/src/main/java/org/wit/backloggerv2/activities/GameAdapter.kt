@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_game.view.*
 import org.wit.backloggerv2.R
+import org.wit.backloggerv2.helpers.readImageFromPath
 import org.wit.backloggerv2.models.GameModel
 
 
@@ -34,13 +35,15 @@ class GameAdapter constructor(private var games: List<GameModel>, private val li
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(game: GameModel, listener: GameListener) {
+        fun bind(game: GameModel,  listener : GameListener) {
             itemView.gameTitle.text = game.title
             itemView.gameDescription.text = game.description
+            itemView.imageIcon.setImageBitmap(readImageFromPath(itemView.context, game.coverArt))
             itemView.setOnClickListener { listener.onGameClick(game) }
-
         }
     }
+
+
 
 
 }

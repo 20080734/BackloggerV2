@@ -31,7 +31,7 @@ class GameMemStore : GameStore, AnkoLogger{
             foundGame.platform = game.platform
             foundGame.genre = game.genre
             foundGame.metacritic = game.metacritic
-            foundGame.coverArt = game.coverArt
+            //foundGame.coverArt = game.coverArt
             logAll()
         }
     }
