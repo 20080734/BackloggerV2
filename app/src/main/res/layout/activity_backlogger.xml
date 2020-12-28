@@ -21,11 +21,7 @@
             app:elevation="0dip"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:titleTextColor="@color/colorPrimary" />
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
@@ -50,8 +46,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gameDescription"
                     android:layout_width="match_parent"
@@ -63,8 +60,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gameDeveloper"
                     android:layout_width="match_parent"
@@ -76,8 +74,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gamePublisher"
                     android:layout_width="match_parent"
@@ -89,8 +88,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gameReleaseDate"
                     android:layout_width="match_parent"
@@ -102,8 +102,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gamePlatform"
                     android:layout_width="match_parent"
@@ -115,8 +116,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gameGenre"
                     android:layout_width="match_parent"
@@ -128,8 +130,9 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/gameMetacritic"
                     android:layout_width="match_parent"
@@ -141,30 +144,31 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="14sp" />
+
                 <Button
                     android:id="@+id/chooseImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
                     android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:text="@string/button_addCoverArt"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/gameCoverArt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
                 <Button
                     android:id="@+id/btnAdd"
                     android:layout_width="match_parent"
-                    android:layout_height="79dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
                     android:paddingTop="8dp"

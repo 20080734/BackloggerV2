@@ -4,8 +4,8 @@ import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.backloggerv2.models.GameJSONStore
-import org.wit.backloggerv2.models.GameMemStore
-import org.wit.backloggerv2.models.GameModel
+//import org.wit.backloggerv2.models.GameMemStore
+//import org.wit.backloggerv2.models.GameModel
 import org.wit.backloggerv2.models.GameStore
 
 class MainApp : Application(), AnkoLogger {

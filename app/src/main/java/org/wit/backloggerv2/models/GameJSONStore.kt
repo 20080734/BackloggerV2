@@ -40,7 +40,25 @@ class GameJSONStore : GameStore, AnkoLogger {
 
 
     override fun update(game: GameModel) {
-        // todo
+        val gamesList = findAll() as ArrayList<GameModel>
+        var foundGame: GameModel? = gamesList.find { g -> g.id == game.id }
+        if (foundGame != null) {
+            foundGame.title = game.title
+            foundGame.description = game.description
+            foundGame.developer = game.developer
+            foundGame.publisher = game.publisher
+            foundGame.releaseDate = game.releaseDate
+            foundGame.platform = game.platform
+            foundGame.genre = game.genre
+            foundGame.metacritic = game.metacritic
+            foundGame.coverArt = game.coverArt
+        }
+        serialize()
+    }
+
+    override fun delete(game: GameModel) {
+        games.remove(game)
+        serialize()
     }
 
     private fun serialize() {
