@@ -6,6 +6,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_backlogger.*
+<<<<<<< Updated upstream
+=======
+import kotlinx.android.synthetic.main.card_game.view.*
+//import kotlinx.android.synthetic.main.activity_gameview.*
+>>>>>>> Stashed changes
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -28,6 +33,10 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_backlogger)
         app = application as MainApp
         var edit = false
+<<<<<<< Updated upstream
+=======
+        //var view = false
+>>>>>>> Stashed changes
 
         //toolbarAdd.title = title      //this causes the app to crash when running on mobile
         //setSupportActionBar(toolbarAdd)
@@ -54,7 +63,25 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_changes)
         }
 
+<<<<<<< Updated upstream
 
+=======
+        /*if (intent.hasExtra("game_view")) {
+            view = true
+
+            game = intent.extras?.getParcelable<GameModel>("game_view")!!
+            gameTitleView.text = game.title
+            gameDescriptionView.setText(game.description)
+            gameDeveloperView.setText(game.developer)
+            gamePublisherView.setText(game.publisher)
+            gameReleaseDateView.setText(game.releaseDate)
+            gamePlatformView.setText(game.platform)
+            gameGenreView.setText(game.genre)
+            gameCoverArtView.setImageBitmap(readImageFromPath(this, game.coverArt)) //this should display image on edit, does not work for some reason
+
+        }*/
+
+>>>>>>> Stashed changes
         btnAdd.setOnClickListener() {
             game.title = gameTitle.text.toString()
             game.description = gameDescription.text.toString()
@@ -101,6 +128,9 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             R.id.item_cancel -> {
                 finish()
             }
+           // R.id.item_edit -> {
+           //     setContentView(R.layout.activity_gameview)
+           // }
         }
         return super.onOptionsItemSelected(item)
     }
