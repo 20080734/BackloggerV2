@@ -8,18 +8,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_game_list.*
+import kotlinx.android.synthetic.main.activity_gameview.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import org.wit.backloggerv2.R
+import org.wit.backloggerv2.helpers.readImageFromPath
 import org.wit.backloggerv2.main.MainApp
 import org.wit.backloggerv2.models.GameModel
 
 class GameListActivity : AppCompatActivity(), GameListener {
 
-   // private var recyclerView: RecyclerView? = null
     private var gridLayoutManager: GridLayoutManager? = null
-
-
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,26 +31,18 @@ class GameListActivity : AppCompatActivity(), GameListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-
-        //recyclerView.adapter = GameAdapter(app.games)
         recyclerView.adapter = GameAdapter(app.games.findAll(), this)
-
-        //recyclerView = findViewById(R.id.my_recycler_view)
         gridLayoutManager = GridLayoutManager(applicationContext,3,LinearLayoutManager.VERTICAL,false)
         recyclerView?.layoutManager = gridLayoutManager
         recyclerView?.setHasFixedSize(true)
-
-
-
         loadGames()
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -61,7 +52,7 @@ class GameListActivity : AppCompatActivity(), GameListener {
     }
 
     override fun onGameClick(game: GameModel) {
-        startActivityForResult(intentFor<BackloggerActivity>().putExtra("game_edit", game), 0)
+        startActivityForResult(intentFor<BackloggerActivity>().putExtra("game_view", game), 0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

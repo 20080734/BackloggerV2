@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_backlogger.*
+import kotlinx.android.synthetic.main.card_game.view.*
+import kotlinx.android.synthetic.main.activity_gameview.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -16,6 +18,8 @@ import org.wit.backloggerv2.helpers.readImageFromPath
 import org.wit.backloggerv2.helpers.showImagePicker
 import org.wit.backloggerv2.main.MainApp
 
+
+
 class BackloggerActivity : AppCompatActivity(), AnkoLogger {
 
     var game = GameModel()
@@ -25,9 +29,10 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_backlogger)
+        setContentView(R.layout.activity_gameview)
         app = application as MainApp
         var edit = false
+        var view = false
 
         //toolbarAdd.title = title      //this causes the app to crash when running on mobile
         //setSupportActionBar(toolbarAdd)
@@ -46,7 +51,7 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             gamePlatform.setText(game.platform)
             gameGenre.setText(game.genre)
             gameMetacritic.setText(game.metacritic)
-            gameCoverArt.setImageBitmap(readImageFromPath(this, game.coverArt)) //this should display image on edit, does not work for some reason
+            gameCoverArtView.setImageBitmap(readImageFromPath(this, game.coverArt)) //this should display image on edit, does not work for some reason
             if (game.coverArt != null) {
                 chooseImage.setText(R.string.change_game_coverart)
             }
@@ -54,16 +59,30 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_changes)
         }
 
+        if (intent.hasExtra("game_view")) {
+            view = true
 
-        btnAdd.setOnClickListener() {
-            game.title = gameTitle.text.toString()
-            game.description = gameDescription.text.toString()
-            game.developer = gameDeveloper.text.toString()
-            game.publisher = gamePublisher.text.toString()
-            game.releaseDate = gameReleaseDate.text.toString()
-            game.platform = gamePlatform.text.toString()
-            game.genre = gameGenre.text.toString()
-            game.metacritic = gameMetacritic.text.toString()
+            game = intent.extras?.getParcelable<GameModel>("game_view")!!
+            gameTitleView.text = game.title
+            gameDescriptionView.setText(game.description)
+            gameDeveloperView.setText(game.developer)
+            gamePublisherView.setText(game.publisher)
+            gameReleaseDateView.setText(game.releaseDate)
+            gamePlatformView.setText(game.platform)
+            gameGenreView.setText(game.genre)
+            gameCoverArtView.setImageBitmap(readImageFromPath(this, game.coverArt)) //this should display image on edit, does not work for some reason
+
+        }
+
+       /* btnAdd.setOnClickListener() {
+            game.title = gameTitleView.text.toString()
+            game.description = gameDescriptionView.text.toString()
+            game.developer = gameDeveloperView.text.toString()
+            game.publisher = gamePublisherView.text.toString()
+            game.releaseDate = gameReleaseDateView.text.toString()
+            game.platform = gamePlatformView.text.toString()
+            game.genre = gameGenreView.text.toString()
+            game.metacritic = gameMetacriticView.text.toString()
 
             if (game.title.isEmpty()) {
                 toast(R.string.enter_game_title)
@@ -85,7 +104,7 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         }
         chooseImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
-        }
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -111,7 +130,7 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             IMAGE_REQUEST -> {
                 if (data != null) {
                     game.coverArt = data.getData().toString()
-                    gameCoverArt.setImageBitmap(readImage(this, resultCode, data))
+                    gameCoverArtView.setImageBitmap(readImage(this, resultCode, data))
                     //chooseImage.setText(R.string.change_game_coverart)
                 }
             }

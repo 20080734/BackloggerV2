@@ -56,6 +56,7 @@ class GameJSONStore : GameStore, AnkoLogger {
         serialize()
     }
 
+
     override fun delete(game: GameModel) {
         games.remove(game)
         serialize()

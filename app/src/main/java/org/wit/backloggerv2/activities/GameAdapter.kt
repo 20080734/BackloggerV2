@@ -36,9 +36,9 @@ class GameAdapter constructor(private var games: List<GameModel>, private val li
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(game: GameModel,  listener : GameListener) {
-            itemView.gameTitle.text = game.title
+            itemView.gameTitleView.text = game.title
             //itemView.gameDescription.text = game.description
-            itemView.gameCoverArt.setImageBitmap(readImageFromPath(itemView.context, game.coverArt))
+            itemView.gameCoverArtView.setImageBitmap(readImageFromPath(itemView.context, game.coverArt))
             itemView.setOnClickListener { listener.onGameClick(game) }
         }
     }
