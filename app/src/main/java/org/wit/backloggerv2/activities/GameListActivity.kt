@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_game_list.*
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
 import org.wit.backloggerv2.R
 import org.wit.backloggerv2.main.MainApp
@@ -56,6 +57,8 @@ class GameListActivity : AppCompatActivity(), GameListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> startActivityForResult<BackloggerActivity>(0)
+            R.id.item_info -> startActivity<InfoActivity>()
+
         }
         return super.onOptionsItemSelected(item)
     }

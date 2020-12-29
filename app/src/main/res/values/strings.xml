@@ -2,6 +2,7 @@
     <string name="app_name">BackloggerV2</string>
     <string name="menu_addGame">Add</string>
     <string name="menu_cancelGame">Cancel</string>
+    <string name="menu_return">Return</string>
     <string name="menu_deleteGame">Delete</string>
     <string name="button_addGame">Add Game</string>
     <string name="hint_gameTitle">Title</string>

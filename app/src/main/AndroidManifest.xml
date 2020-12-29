@@ -12,6 +12,8 @@
         android:theme="@style/Theme.BackloggerV2">
         <activity android:name=".activities.BackloggerActivity">
         </activity>
+        <activity android:name=".activities.InfoActivity">
+        </activity>
         <activity android:name=".activities.GameListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
