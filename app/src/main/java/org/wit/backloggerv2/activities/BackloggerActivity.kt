@@ -6,11 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_backlogger.*
-<<<<<<< Updated upstream
-=======
 import kotlinx.android.synthetic.main.card_game.view.*
 //import kotlinx.android.synthetic.main.activity_gameview.*
->>>>>>> Stashed changes
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -20,6 +17,8 @@ import org.wit.backloggerv2.helpers.readImage
 import org.wit.backloggerv2.helpers.readImageFromPath
 import org.wit.backloggerv2.helpers.showImagePicker
 import org.wit.backloggerv2.main.MainApp
+
+
 
 class BackloggerActivity : AppCompatActivity(), AnkoLogger {
 
@@ -33,10 +32,7 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_backlogger)
         app = application as MainApp
         var edit = false
-<<<<<<< Updated upstream
-=======
         //var view = false
->>>>>>> Stashed changes
 
         //toolbarAdd.title = title      //this causes the app to crash when running on mobile
         //setSupportActionBar(toolbarAdd)
@@ -63,9 +59,6 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_changes)
         }
 
-<<<<<<< Updated upstream
-
-=======
         /*if (intent.hasExtra("game_view")) {
             view = true
 
@@ -81,7 +74,6 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
 
         }*/
 
->>>>>>> Stashed changes
         btnAdd.setOnClickListener() {
             game.title = gameTitle.text.toString()
             game.description = gameDescription.text.toString()
