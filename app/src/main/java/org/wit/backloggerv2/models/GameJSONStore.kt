@@ -16,6 +16,7 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
+//JSON store for CRUD functionality and persistence
 class GameJSONStore : GameStore, AnkoLogger {
 
     val context: Context
@@ -37,7 +38,6 @@ class GameJSONStore : GameStore, AnkoLogger {
         games.add(game)
         serialize()
     }
-
 
     override fun update(game: GameModel) {
         val gamesList = findAll() as ArrayList<GameModel>

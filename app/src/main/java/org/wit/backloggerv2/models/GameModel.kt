@@ -2,7 +2,7 @@ package org.wit.backloggerv2.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-
+//Model for each game in the backlog, only title is necessary, the rest are optional
 @Parcelize
 data class GameModel(var id: Long = 0,
                      var title: String = "",

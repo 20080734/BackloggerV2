@@ -10,6 +10,7 @@ import android.net.Uri
 import org.wit.backloggerv2.R
 import java.io.IOException
 
+//Image helper used in the labs for allowing image reading
 fun showImagePicker(parent: Activity, id: Int) {
     val intent = Intent()
     intent.type = "image/*"

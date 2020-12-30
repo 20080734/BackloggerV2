@@ -15,14 +15,13 @@ import org.wit.backloggerv2.R
 import org.wit.backloggerv2.main.MainApp
 import org.wit.backloggerv2.models.GameModel
 
+//Activity for the main display page
 class GameListActivity : AppCompatActivity(), GameListener {
 
-   // private var recyclerView: RecyclerView? = null
     private var gridLayoutManager: GridLayoutManager? = null
-
-
     lateinit var app: MainApp
 
+    //creates the tiles in a grid style
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_list)
@@ -33,36 +32,29 @@ class GameListActivity : AppCompatActivity(), GameListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-
-        //recyclerView.adapter = GameAdapter(app.games)
         recyclerView.adapter = GameAdapter(app.games.findAll(), this)
-
-        //recyclerView = findViewById(R.id.my_recycler_view)
         gridLayoutManager = GridLayoutManager(applicationContext,3,LinearLayoutManager.VERTICAL,false)
         recyclerView?.layoutManager = gridLayoutManager
         recyclerView?.setHasFixedSize(true)
-
-
-
         loadGames()
-
-
     }
 
+    //decides toolbar type
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    //adds toolbar controls
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> startActivityForResult<BackloggerActivity>(0)
             R.id.item_info -> startActivity<InfoActivity>()
-
         }
         return super.onOptionsItemSelected(item)
     }
 
+    //go to the edit page on game click
     override fun onGameClick(game: GameModel) {
         startActivityForResult(intentFor<BackloggerActivity>().putExtra("game_edit", game), 0)
     }
@@ -72,10 +64,10 @@ class GameListActivity : AppCompatActivity(), GameListener {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    //displays and loads the current backlog of games
     private fun loadGames() {
         showGames(app.games.findAll())
     }
-
     fun showGames (games: List<GameModel>) {
         recyclerView.adapter = GameAdapter(games, this)
         recyclerView.adapter?.notifyDataSetChanged()

@@ -19,25 +19,23 @@ import org.wit.backloggerv2.helpers.showImagePicker
 import org.wit.backloggerv2.main.MainApp
 
 
-
+//Activity for the create/edit function
 class BackloggerActivity : AppCompatActivity(), AnkoLogger {
 
     var game = GameModel()
     val IMAGE_REQUEST = 1
     lateinit var app : MainApp
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_backlogger)
         app = application as MainApp
         var edit = false
-        //var view = false
+        //var view = false              //left over from test branch
 
         //toolbarAdd.title = title      //this causes the app to crash when running on mobile
         //setSupportActionBar(toolbarAdd)
         info("Backloggerv2 Activity started..")
-
 
         if (intent.hasExtra("game_edit")) {
             edit = true
@@ -59,6 +57,7 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             btnAdd.setText(R.string.save_changes)
         }
 
+        //attempt at individual views
         /*if (intent.hasExtra("game_view")) {
             view = true
 
@@ -107,10 +106,13 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
         }
     }
 
+    //decides toolbar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_game, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
+    //controls for toolbar options
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_delete -> {
@@ -120,9 +122,6 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
             R.id.item_cancel -> {
                 finish()
             }
-           // R.id.item_edit -> {
-           //     setContentView(R.layout.activity_gameview)
-           // }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -134,7 +133,6 @@ class BackloggerActivity : AppCompatActivity(), AnkoLogger {
                 if (data != null) {
                     game.coverArt = data.getData().toString()
                     gameCoverArt.setImageBitmap(readImage(this, resultCode, data))
-                    //chooseImage.setText(R.string.change_game_coverart)
                 }
             }
         }

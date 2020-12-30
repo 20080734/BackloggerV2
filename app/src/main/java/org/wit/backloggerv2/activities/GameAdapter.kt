@@ -18,11 +18,11 @@ class GameAdapter constructor(private var games: List<GameModel>, private val li
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-                LayoutInflater.from(parent.context).inflate(
-                        R.layout.card_game,
-                        parent,
-                        false
-                )
+            LayoutInflater.from(parent.context).inflate(
+                    R.layout.card_game,
+                    parent,
+                    false
+            )
         )
     }
 
@@ -33,11 +33,11 @@ class GameAdapter constructor(private var games: List<GameModel>, private val li
 
     override fun getItemCount(): Int = games.size
 
+    //what the user sees per game card
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(game: GameModel,  listener : GameListener) {
             itemView.gameTitle.text = game.title
-            //itemView.gameDescription.text = game.description
             itemView.gameCoverArt.setImageBitmap(readImageFromPath(itemView.context, game.coverArt))
             itemView.setOnClickListener { listener.onGameClick(game) }
         }
