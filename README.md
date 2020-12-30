@@ -14,6 +14,6 @@ only allows for READ to work and does not work entirely with CRUD, hence it was 
 
 Here are some images that showcase test1 branch
 
-![test1Image](Screenshot (224).png)
+![image](image1.png)
 
-![test1Image2](Screenshot (225).png)
+![image2](image2.png)
